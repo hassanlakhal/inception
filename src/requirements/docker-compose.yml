@@ -1,5 +1,5 @@
 version: '3.3'
 services:
     mariadb:
-      build: ./
+      build: ./mariadb
       image: mariadb
