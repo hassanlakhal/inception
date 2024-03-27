@@ -3,7 +3,11 @@ services:
     mariadb:
       build: ./requirements/mariadb
       image: mariadb
-      env_file:
-          .env
-    # nginx:
-    #   build: ./
+      env_file: .env 
+    nginx:
+      build: ./requirements/nginx
+      image: nginx
+      ports: ["5050:80"]
+      env_file: .env
+      command: /bin/bash
+      # tty: true
