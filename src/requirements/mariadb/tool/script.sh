@@ -3,11 +3,13 @@ service mariadb start
 
 sleep 2
 
-service mariadb stop
-
-mariadb << "EOF
+mariadb << EOF
     create database $DB_NAME;
     cretae user '$MYSQL_USER'@'localhost' identified by '$MYSQL_PASSWORD';
-# EOF"
+    grant all privileges on $DB_NAME.* to '$MYSQL_USER'@'localhost';
+    flush privileges;
+EOF
+
+service mariadb stop
 
 exec mysqld_safe
