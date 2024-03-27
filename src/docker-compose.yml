@@ -5,3 +5,5 @@ services:
       image: mariadb
       env_file:
           .env
+    # nginx:
+    #   build: ./
