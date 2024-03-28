@@ -5,7 +5,7 @@ sleep 2
 
 mariadb << EOF
     create database $DB_NAME;
-    cretae user '$MYSQL_USER'@'localhost' identified by '$MYSQL_PASSWORD';
+    create user '$MYSQL_USER'@'localhost' identified by '$MYSQL_PASSWORD';
     grant all privileges on $DB_NAME.* to '$MYSQL_USER'@'localhost';
     flush privileges;
 EOF
