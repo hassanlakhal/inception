@@ -1,11 +1,11 @@
 version: '3.8'
 services:
-  mariadb:
-    build: ./requirements/mariadb
-    image: mariadb
-    env_file: .env
-    networks:
-      - networkHs 
+  # mariadb:
+  #   build: ./requirements/mariadb
+  #   image: mariadb
+  #   env_file: .env
+  #   networks:
+  #     - networkHs 
   nginx:
     build: ./requirements/nginx
     image: nginx
@@ -16,11 +16,12 @@ services:
     networks:
       - networkHs
   wordpress:
+    container_name: wp-php
     depends_on:
       - nginx
     build: ./requirements/wordpress
     image: wordpress
-    # ports: ["9000"]
+    ports: ["9000:9000"]
     env_file: .env 
     volumes:
       - WordPress:/var/www/html
@@ -29,7 +30,7 @@ services:
 
 networks:
   networkHs:
-    name: networkHs
+    driver: bridge
 
 volumes:
     WordPress:

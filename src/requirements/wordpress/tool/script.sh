@@ -12,9 +12,9 @@ tar -xvf latest.tar.gz
 
 rm -rf latest.tar.gz
 
-# chown -R www-data:www-data /var/www/html/wordpress/*
+chown -R www-data:www-data /var/www/html/wordpress/*
 
-# chmod -R 755 /var/www/html/wordpress/*
+chmod -R 755 /var/www/html/wordpress/*
 
 # tail -f
 exec php-fpm7.4  -F
