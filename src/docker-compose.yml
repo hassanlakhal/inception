@@ -7,21 +7,22 @@ services:
   #   networks:
   #     - networkHs 
   nginx:
+    container_name: nginx_c
     build: ./requirements/nginx
     image: nginx
     ports: ["5050:80"]
     env_file: .env
+    depends_on:
+      - wordpress
     volumes:
       - WordPress:/var/www/html
     networks:
       - networkHs
   wordpress:
     container_name: wp-php
-    depends_on:
-      - nginx
     build: ./requirements/wordpress
     image: wordpress
-    ports: ["9000:9000"]
+    ports: ["9000"]
     env_file: .env 
     volumes:
       - WordPress:/var/www/html
