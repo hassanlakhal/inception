@@ -1,11 +1,12 @@
 version: '3.8'
 services:
-  # mariadb:
-  #   build: ./requirements/mariadb
-  #   image: mariadb
-  #   env_file: .env
-  #   networks:
-  #     - networkHs 
+  mariadb:
+    container_name: mariadb
+    build: ./requirements/mariadb
+    image: mariadb
+    env_file: .env
+    networks:
+      - networkHs 
   nginx:
     container_name: nginx_c
     build: ./requirements/nginx
