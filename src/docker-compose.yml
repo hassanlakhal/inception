@@ -23,7 +23,7 @@ services:
     container_name: wp-php
     build: ./requirements/wordpress
     image: wordpress
-    ports: ["9000"]
+    # ports: ["9000", "9000"]
     env_file: .env 
     volumes:
       - WordPress:/var/www/html
