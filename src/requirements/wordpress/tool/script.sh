@@ -32,13 +32,12 @@ sed -i "s/password_here/$DB_PASS/g"  wp-config-sample.php
 sed -i "s/localhost/mariadb:3306/g"  wp-config-sample.php
 
 cp wp-config-sample.php wp-config.php
-# printf "define('DB_NAME', 'wordpress_db');
-#  define('DB_USER', 'wpuser');
-#  define('DB_PASSWORD', 'Passw0rd!');" > wp-config.php
 
-# wp config create --allow-root --dbname=$DB_NAME --dbuser=$DB_USER \
-#     --dbpass=$DB_PASS --dbhost=mariadb:3306 --path='/var/www/html/wordpress'
-
+wp core install --allow-root \
+    --url=localhost:5050\
+    --title=test --admin_user=admin \
+    --admin_password=123 \
+    --admin_email=info@example.com
 exec php-fpm7.4  -F
 
 
