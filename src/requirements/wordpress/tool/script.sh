@@ -1,6 +1,6 @@
 #!/bin/bash
 
-mkdir /var/www/html/wordpress
+# mkdir /var/www/html/wordpress
 wget https://wordpress.org/latest.tar.gz
 
 tar -xvf latest.tar.gz
@@ -34,7 +34,7 @@ sed -i "s/localhost/mariadb:3306/g"  wp-config-sample.php
 cp wp-config-sample.php wp-config.php
 
 wp core install --allow-root \
-    --url=localhost:5050\
+    --url=https://hlakhal-.42.fr\
     --title=test --admin_user=admin \
     --admin_password=123 \
     --admin_email=info@example.com
