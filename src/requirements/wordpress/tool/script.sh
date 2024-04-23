@@ -35,9 +35,14 @@ cp wp-config-sample.php wp-config.php
 
 wp core install --allow-root \
     --url=https://hlakhal-.42.fr\
-    --title=test --admin_user=admin \
+    --title=inception --admin_user=dirgham \
     --admin_password=123 \
     --admin_email=info@example.com
+wp user create --allow-root \
+    ghadanfar dirgham@example.com \
+    --role=editor --user_pass=123abc \
+    --first_name=hassan \
+    --last_name=lakhal 
 exec php-fpm7.4  -F
 
 
