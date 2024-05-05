@@ -29,7 +29,7 @@ sed -i "s/username_here/$DB_USER/g"  wp-config-sample.php
 
 sed -i "s/password_here/$DB_PASS/g"  wp-config-sample.php
 
-sed -i "s/localhost/mariadb:3360/g"  wp-config-sample.php
+sed -i "s/localhost/mariadb:3306/g"  wp-config-sample.php
 
 cp wp-config-sample.php wp-config.php
 
