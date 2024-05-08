@@ -1,5 +1,5 @@
 [mariadbd]
-port = 3360
+port = 3306
 datadir = /var/lib/mysql
 log_error = /var/log/mysql/error.log
 bind_address=mariadb
