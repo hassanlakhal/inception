@@ -3,12 +3,18 @@ service mariadb start
 
 sleep 2
 
-mariadb << EOF
-    create database $DB_NAME;
-    create user '$DB_USER'@'%' identified by '$DB_PASS';
-    grant all privileges on $DB_NAME.* to '$DB_USER'@'%';
-    flush privileges;
+if ! mariadb -u"$DB_USER" -p"$DB_PASS" -e \
+"SELECT 1 FROM mysql.user WHERE user='$DB_USER'" &> /dev/null; then
+    mariadb -u"$DB_USER" -p"$DB_PASS" <<EOF
+        CREATE DATABASE $DB_NAME;
+        CREATE USER '$DB_USER'@'%' IDENTIFIED BY '$DB_PASS';
+        GRANT ALL PRIVILEGES ON $DB_NAME.* TO '$DB_USER'@'%';
+        FLUSH PRIVILEGES;
 EOF
+else
+    echo "Database $DB_NAME already exists."
+fi
+
 
 service mariadb stop
 
