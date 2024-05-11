@@ -5,6 +5,8 @@ services:
     build: ./requirements/mariadb
     image: mariadb
     env_file: .env
+    volumes:
+      - Mariadb:/var/lib/mysql
     networks:
       - networkHs 
   nginx:
@@ -20,7 +22,7 @@ services:
     networks:
       - networkHs
   wordpress:
-    container_name: wp-php
+    container_name: wordpress
     build: ./requirements/wordpress
     image: wordpress
     env_file: .env 
@@ -40,3 +42,9 @@ volumes:
         type: bind
         o: bind
         device: /home/hlakhal-/data
+    Mariadb:
+      driver: local
+      driver_opts:
+        type: bind
+        o: bind
+        device: /home/hlakhal-/database
