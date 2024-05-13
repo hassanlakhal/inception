@@ -34,13 +34,13 @@ sed -i "s/localhost/mariadb:3306/g"  wp-config-sample.php
 cp wp-config-sample.php wp-config.php
 
 wp core install --allow-root \
-    --url=https://hlakhal-.42.fr\
+    --url=https://$DOMAIN_NAME\
     --title=inception --admin_user=dirgham \
-    --admin_password=123 \
+    --admin_password=$ADMIN_WD_PASS \
     --admin_email=info@example.com
 wp user create --allow-root \
     ghadanfar dirgham@example.com \
-    --role=editor --user_pass=123abc \
+    --role=editor --user_pass=$USER_WD_PASS \
     --first_name=hassan \
     --last_name=lakhal 
 exec php-fpm7.4  -F
