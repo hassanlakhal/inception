@@ -8,7 +8,8 @@ services:
     volumes:
       - Mariadb:/var/lib/mysql
     networks:
-      - networkHs 
+      - networkHs
+    restart: always 
   nginx:
     container_name: nginx
     build: ./requirements/nginx
@@ -21,6 +22,7 @@ services:
       - WordPress:/var/www/html
     networks:
       - networkHs
+    restart: always 
   wordpress:
     container_name: wordpress
     build: ./requirements/wordpress
@@ -30,6 +32,7 @@ services:
       - WordPress:/var/www/html
     networks:
       - networkHs
+    restart: always
 
 networks:
   networkHs:
