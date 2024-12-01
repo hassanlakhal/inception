@@ -1,14 +1,13 @@
 FROM debian:bullseye
 
-RUN apt-get update && apt-get upgrade -y && apt-get install nginx -y \
-      && apt-get install openssl -y
-
-RUN mkdir /var/www/html/wordpress
-
-RUN mkdir -p /etc/nginx/ssl
+RUN apt-get update && \
+    apt-get upgrade -y && \
+    apt-get install -y nginx openssl && \
+    apt-get clean && \
+    mkdir -p /var/www/html/wordpress /etc/nginx/ssl && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY ./conf/default.conf /etc/nginx/sites-enabled/default
-
 COPY ./tool/script.sh /script.sh
 
 RUN chmod u+x /script.sh
