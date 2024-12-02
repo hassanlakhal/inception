@@ -45,7 +45,7 @@ else
         --role=editor --user_pass=$USER_WD_PASS \
         --first_name=hassan \
         --last_name=lakhal 
-    wp theme install Modestra  --allow-root --activate
+    wp theme install modestra  --allow-root --activate
 
     echo "wordpress is created ."
 fi
