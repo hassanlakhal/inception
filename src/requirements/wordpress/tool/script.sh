@@ -22,7 +22,7 @@ else
     mv wp-cli.phar /usr/local/bin/wp
 
     cd  /var/www/html/wordpress
-
+    echo "wating ...."
     sleep 10
 
     sed -i "s/database_name_here/$DB_NAME/g"  wp-config-sample.php
@@ -45,6 +45,8 @@ else
         --role=editor --user_pass=$USER_WD_PASS \
         --first_name=hassan \
         --last_name=lakhal 
+    wp theme install Modestra  --allow-root --activate
+
     echo "wordpress is created ."
 fi
 

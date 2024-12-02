@@ -10,10 +10,10 @@ down:
 	@cd src && docker compose down
 
 clean:
-	@cd src && docker compose down &&\
-	 sudo rm -rf  /home/hlakhal-/data/*\
-	 && sudo rm -rf /home/hlakhal-/database/*\
-	 && docker volume rm src_Mariadb src_WordPress > /dev/null
-
-fclean:
+	@cd src && docker compose down && \
+	sudo rm -rf /home/hlakhal-/data/* && \
+	sudo rm -rf /home/hlakhal-/database/* && \
+	docker volume rm src_Mariadb src_WordPress  /dev/null 2>&1 | \
 	docker system prune -af
+
+	
