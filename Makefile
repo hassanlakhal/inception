@@ -2,7 +2,7 @@ all: up
 
 up:
 	@echo "build is starting ..."
-	@cd src && docker compose up --build
+	@cd src && docker compose up --build -d 
 	@echo "down !!"
 
 down:
