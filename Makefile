@@ -11,8 +11,8 @@ down:
 
 clean:
 	@cd src && docker compose down && \
-	sudo rm -rf /home/hlakhal-/data/* && \
-	sudo rm -rf /home/hlakhal-/database/* && \
+	sudo rm -rf $HOME/data/* && \
+	sudo rm -rf $HOME/database/* && \
 	docker volume rm src_Mariadb src_WordPress  /dev/null 2>&1 | \
 	docker system prune -af
 

@@ -43,10 +43,10 @@ volumes:
       driver_opts:
         type: bind
         o: bind
-        device: /home/hlakhal-/data
+        device: $HOME/data
     Mariadb:
       driver: local
       driver_opts:
         type: bind
         o: bind
-        device: /home/hlakhal-/database
+        device: $HOME/database
